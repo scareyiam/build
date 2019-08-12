@@ -13,6 +13,12 @@ import 'package:_test/app.dart';
 import 'common/message.dart';
 
 void main() {
+  var button = ButtonElement()..text = 'click me!';
+  button.onClick.listen(runTests);
+  document.body.append(button);
+}
+
+void runTests(_) {
   setUp(startApp);
 
   tearDown(() {
@@ -25,5 +31,5 @@ void main() {
 
   test('failing test', () {
     expect(true, isFalse);
-  }, skip: 'Expected failure');
+  });
 }
